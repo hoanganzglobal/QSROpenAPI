@@ -77,12 +77,12 @@ QSR Open API is a Open API allowing partners to view and post in them.
 
 Resources related to restaurants in the API.
 
-### Restaurants Collection [/v1/restaurants?brand_id={brand_id}&status={status}&page={page}&size={size}]
+### Restaurants Collection [/v1/restaurants?brandId={brandId}&status={status}&page={page}&size={size}]
 
 #### List All Restaurants [GET]
 
 + Parameters
-    + brand_id: `1` (number, required)
+    + brandId: `1` (number, required)
     + status: `Active` (string, optional)
     + page: `0` (number, optional)
     + size: `10` (number, optional)
@@ -95,7 +95,7 @@ Resources related to restaurants in the API.
                 "code": "1",
                 "name": "The Pizza Company Nguyen Thai Hoc",
                 "status": "Active",
-                "brand_id": 1,
+                "brandId": 1,
                 "phone": "+84838206626",
                 "full_address": "",
                 "location": {
@@ -110,34 +110,34 @@ Resources related to restaurants in the API.
                 },
                 "translations": [
                     {
-                        "language_code": "en",
+                        "languageCode": "en",
                         "name": "The Pizza Company Nguyen Thai Hoc",
-                        "short_desc": "Short Description",
-                        "meta_title": "Meta Title",
-                        "meta_keyword": "Meta Keywords",
-                        "meta_description": "Meta Keywords"
+                        "shortDescription": "Short Description",
+                        "metaTitle": "Meta Title",
+                        "metaKeyword": "Meta Keywords",
+                        "metaDescription": "Meta Keywords"
                     }
                 ],
-                "is_scheduled_order": true,
-                "is_delivery": true,
-                "is_pickup": true,
-                "min_delivery_time": "30",
-                "max_delivery_time": "40",
-                "opening_time": "10:00",
-                "closing_time": "22:00",
-                "published_at": "2021-12-05T08:40:51.620Z",
-                "created_at": "2021-12-05T08:40:51.620Z",
-                "updated_at": "2021-12-05T08:40:51.620Z"
+                "isScheduled_order": true,
+                "isDelivery": true,
+                "isPickup": true,
+                "minDeliveryTime": "30",
+                "maxDeliveryTime": "40",
+                "openingTime": "10:00",
+                "closingTime": "22:00",
+                "publishedAt": "2021-12-05T08:40:51.620Z",
+                "createdAt": "2021-12-05T08:40:51.620Z",
+                "updatedAt": "2021-12-05T08:40:51.620Z"
             }
         ]
 
 
-### Restaurant Details [/v1/restaurants/details?brand_id={brand_id}&id={id}]
+### Restaurant Details [/v1/restaurants/details?brandId={brandId}&id={id}]
 
 #### Inquiry Restaurant Details [GET]
 
 + Parameters
-    + brand_id: `1` (number, required)
+    + brandId: `1` (number, required)
     + id: `1` (number, required)
 
 + Response 200 (application/json)
@@ -147,9 +147,9 @@ Resources related to restaurants in the API.
             "code": "1",
             "name": "The Pizza Company Nguyen Thai Hoc",
             "status": "Active",
-            "brand_id": 1,
+            "brandId": 1,
             "phone": "+84838206626",
-            "full_address": "",
+            "fullAddress": "",
             "location": {
                 "lat": "",
                 "lng": "",
@@ -162,33 +162,33 @@ Resources related to restaurants in the API.
             },
             "translations": [
                 {
-                    "language_code": "en",
+                    "languageCode": "en",
                     "name": "The Pizza Company Nguyen Thai Hoc",
-                    "short_desc": "Short Description",
-                    "meta_title": "Meta Title",
-                    "meta_keyword": "Meta Keywords",
-                    "meta_description": "Meta Keywords"
+                    "shortDescription": "Short Description",
+                    "metaTitle": "Meta Title",
+                    "metaKeyword": "Meta Keywords",
+                    "metaDescription": "Meta Keywords"
                 }
             ],
-            "is_scheduled_order": true,
-            "is_delivery": true,
-            "is_pickup": true,
-            "min_delivery_time": "30",
-            "max_delivery_time": "40",
-            "opening_time": "10:00",
-            "closing_time": "22:00",
-            "published_at": "2021-12-05T08:40:51.620Z",
-            "created_at": "2021-12-05T08:40:51.620Z",
-            "updated_at": "2021-12-05T08:40:51.620Z"
+            "isScheduled_order": true,
+            "isDelivery": true,
+            "isPickup": true,
+            "minDeliveryTime": "30",
+            "maxDeliveryTime": "40",
+            "openingTime": "10:00",
+            "closingTime": "22:00",
+            "publishedAt": "2021-12-05T08:40:51.620Z",
+            "createdAt": "2021-12-05T08:40:51.620Z",
+            "updatedAt": "2021-12-05T08:40:51.620Z"
         }
 
 
-### Restaurant Table Details [/v1/restaurants/details/tables?brand_id={brand_id}&id={id}]
+### Restaurant Table Details [/v1/restaurants/details/tables?brandId={brandId}&id={id}]
 
 #### Inquiry Restaurant Table Details [GET]
 
 + Parameters
-    + brand_id: `1` (number, required)
+    + brandId: `1` (number, required)
     + id: `1` (number, required)
 
 + Response 200 (application/json)
@@ -199,8 +199,8 @@ Resources related to restaurants in the API.
                 {
                     "id": "1",
                     "code": "1",
-                    "brand_code": "tpc",
-                    "restaurant_id": "1",
+                    "brandId": 1,
+                    "restaurantId": 1,
                     "name": "A1",
                     "floor": "1",
                     "status": "Active"
@@ -213,13 +213,13 @@ Resources related to restaurants in the API.
 
 Resources related to menu in the API.
 
-### Brand Menu Details [/menu/details?brand_id={brand_id}&menu_id={menu_id}]
+### Brand Menu Details [/menu/details?brandId={brandId}&menuId={menuId}]
 
 #### Inquiry Brand Menu Details [GET]
 
 + Parameters
-    + brand_id: `1` (number, required)
-    + menu_id: `1` (number, required)
+    + brandId: `1` (number, required)
+    + menuId: `1` (number, required)
 
 + Response 200 (application/json)
         
@@ -227,31 +227,31 @@ Resources related to menu in the API.
             "menucategory": [
                 {
                     "id": 1,
-                    "parent_id": NULL,
-                    "menu_id": 1,
-                    "brand_id": 1,
+                    "parentId": NULL,
+                    "menuId": 1,
+                    "brandId": 1,
                     "code": "1",
                     "name": "Promotions",
                     "sort": 0,
                     "status": "Active",
                     "translations": [
-                        "menucategory_id": 1,
-                        "language_code": "en",
+                        "menuCategoryId": 1,
+                        "languageCode": "en",
                         "name": "Promotions",
                         "description": "Description"
                     ]
                 },
                 {
                     "id": 2,
-                    "parent_id": NULL,
-                    "menu_id": 1,
+                    "parentId": NULL,
+                    "menuId": 1,
                     "brand_id": 1,
                     "code": "2",
                     "name": "Pizza",
                     "sort": 0,
                     "status": "Active",
                     "translations": [
-                        "menucategory_id": 2,
+                        "menuCategoryId": 2,
                         "language_code": "en",
                         "name": "Pizza",
                         "description": "Description"
@@ -259,17 +259,49 @@ Resources related to menu in the API.
                 },
                 {
                     "id": 3,
-                    "parent_id": 2,
-                    "menu_id": 1,
-                    "brand_id": 1,
+                    "parentId": 2,
+                    "menuId": 1,
+                    "brandId": 1,
                     "code": "3",
                     "name": "Pizza Pesto",
                     "sort": 0,
                     "status": "Active",
                     "translations": [
-                        "menucategory_id": 3,
-                        "language_code": "en",
+                        "menuCategoryId": 3,
+                        "languageCode": "en",
                         "name": "Pizza Pesto",
+                        "description": "Description"
+                    ]
+                },
+                {
+                    "id": 4,
+                    "parentId": NULL,
+                    "menuId": 1,
+                    "brandId": 1,
+                    "code": "4",
+                    "name": "Salad",
+                    "sort": 0,
+                    "status": "Active",
+                    "translations": [
+                        "menuCategoryId": 4,
+                        "languageCode": "en",
+                        "name": "Salad",
+                        "description": "Description"
+                    ]
+                },
+                {
+                    "id": 5,
+                    "parentId": NULL,
+                    "menuId": 1,
+                    "brandId": 1,
+                    "code": "5",
+                    "name": "Salad",
+                    "sort": 0,
+                    "status": "Active",
+                    "translations": [
+                        "menuCategoryId": 4,
+                        "languageCode": "en",
+                        "name": "Salad",
                         "description": "Description"
                     ]
                 }
@@ -277,26 +309,24 @@ Resources related to menu in the API.
             "menuitems": [
                 {
                     "id": 1,
-                    "menu_id": 1,
-                    "brand_id": 1,
-                    "menucategory_ids": [3],
+                    "menuId": 1,
+                    "brandId": 1,
+                    "menuCategoryIds": [3],
                     "name": "Seafood Pesto",
                     "price": 169000,
-                    "old_price": 179000,
+                    "oldPrice": 179000,
                     "status": "Active",
                     "translations": [
-                        "menuitem_id": 1,
-                        "language_code": "en",
+                        "menuItemId": 1,
+                        "languageCode": "en",
                         "name": "Seafood Pesto",
                         "description": "Description"
                     ],
-                    "is_combo": false,
-                    "is_size": true,
-                    "is_dough": true,
-                    "product_popup": {
+                    "isCombo": false,
+                    "productPopupDetails": {
                         "translations": [
                             {
-                                "language_code": "en",
+                                "languageCode": "en",
                                 "translator": {
                                     "size": "Size",
                                     "dough": "Dough",
@@ -304,7 +334,7 @@ Resources related to menu in the API.
                                 }
                             }
                         ],
-                        "modiGroups": [],
+                        "modifierGroups": NULL,
                         "sizes": {
                             "options": [
                                 {
@@ -316,13 +346,13 @@ Resources related to menu in the API.
                                     "sort": 0,
                                     "translation": [
                                         {
-                                            "language_code": "en",
+                                            "languageCode": "en",
                                             "name": "small 6"
                                         }
                                     ],
                                 }
                             ]
-                        }
+                        },
                         "doughs": {
                             "options": [
                                 {
@@ -335,7 +365,7 @@ Resources related to menu in the API.
                                     "sort": 0,
                                     "translations": [
                                         {
-                                            "language_code": "en",
+                                            "languageCode": "en",
                                             "name": "Pan"
                                         }
                                     ]
@@ -353,7 +383,7 @@ Resources related to menu in the API.
                                     "photo": "https://domain.com/photos/toppings/tomato.png",
                                     "translations": [
                                         {
-                                            "language_code": "en",
+                                            "languageCode": "en",
                                             "name": "Tomato"
                                         }
                                     ]
@@ -361,13 +391,13 @@ Resources related to menu in the API.
                             ]
                         }
                     },
-                    "product_features": [
+                    "productFeatures": [
                         {
                             "alias": "best-seller",
                             "icon": "https://domain.com/icons/status/best-seller.png",
                             "translations": [
                                 {
-                                    "language_code": "en",
+                                    "languageCode": "en",
                                     "name": "Best Seller"
                                 }
                             ]
@@ -376,12 +406,12 @@ Resources related to menu in the API.
                 },
                 {
                     "id": 2,
-                    "menu_id": 1,
-                    "brand_id": 1,
-                    "menucategory_ids": [1],
+                    "menuId": 1,
+                    "brandId": 1,
+                    "menuCategoryIds": [1],
                     "name": "Combo Cool Price",
                     "price": 169000,
-                    "old_price": 179000,
+                    "oldPrice": 179000,
                     "status": "Active",
                     "translations": [
                         "menuItemId": 2,
@@ -389,13 +419,11 @@ Resources related to menu in the API.
                         "name": "Combo Cool Price",
                         "description": "Description"
                     ],
-                    "is_combo": true,
-                    "is_size": true,
-                    "is_dough": true,
-                    "product_popup": {
+                    "isCombo": true,
+                    "productPopupDetails": {
                         "translations": [
                             {
-                                "language_code": "en",
+                                "languageCode": "en",
                                 "translator": {
                                     "size": "Size",
                                     "dough": "Dough",
@@ -416,7 +444,7 @@ Resources related to menu in the API.
                                 "translations": [
                                     {
                                         "modifierGroupId": 1,
-                                        "language_code": "en",
+                                        "languageCode": "en",
                                         "name": "Pizza",
                                         "description": "Description"
                                     }
@@ -433,7 +461,7 @@ Resources related to menu in the API.
                                 "translations": [
                                     {
                                         "modifierGroupId": 2,
-                                        "language_code": "en",
+                                        "languageCode": "en",
                                         "name": "Appetizers",
                                         "description": "Description"
                                     }
@@ -450,7 +478,7 @@ Resources related to menu in the API.
                                 "translations": [
                                     {
                                         "modifierGroupId": 3,
-                                        "language_code": "en",
+                                        "languageCode": "en",
                                         "name": "Drinks",
                                         "description": "Description"
                                     }
@@ -468,13 +496,13 @@ Resources related to menu in the API.
                                     "sort": 0,
                                     "translation": [
                                         {
-                                            "language_code": "en",
+                                            "languageCode": "en",
                                             "name": "small 6"
                                         }
                                     ],
                                 }
                             ]
-                        }
+                        },
                         "doughs": {
                             "options": [
                                 {
@@ -487,7 +515,7 @@ Resources related to menu in the API.
                                     "sort": 0,
                                     "translations": [
                                         {
-                                            "language_code": "en",
+                                            "languageCode": "en",
                                             "name": "Pan"
                                         }
                                     ]
@@ -505,7 +533,7 @@ Resources related to menu in the API.
                                     "photo": "https://domain.com/photos/toppings/tomato.png",
                                     "translations": [
                                         {
-                                            "language_code": "en",
+                                            "languageCode": "en",
                                             "name": "Tomato"
                                         }
                                     ]
@@ -513,13 +541,120 @@ Resources related to menu in the API.
                             ]
                         }
                     },
-                    "product_features": [
+                    "productFeatures": [
                         {
                             "alias": "best-seller",
                             "icon": "https://domain.com/icons/status/best-seller.png",
                             "translations": [
                                 {
-                                    "language_code": "en",
+                                    "languageCode": "en",
+                                    "name": "Best Seller"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "menuId": 1,
+                    "brandId": 1,
+                    "menuCategoryIds": [4],
+                    "name": "Caesar's salad",
+                    "price": 69000,
+                    "oldPrice": 79000,
+                    "status": "Active",
+                    "translations": [
+                        "menuItemId": 3,
+                        "languageCode": "en",
+                        "name": "Caesar's salad",
+                        "description": "Salad with caesar dressing"
+                    ],
+                    "isCombo": false,
+                    "productPopupDetails": {
+                        "translations": [
+                            {
+                                "languageCode": "en",
+                                "translator": {
+                                    "size": "Size",
+                                    "dough": "Dough",
+                                    "topping": "Topping"
+                                }
+                            }
+                        ],
+                        "modifierGroups": NULL,
+                        "sizes": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "status": "Active",
+                                    "isDefault": true,
+                                    "price": 0,
+                                    "sort": 0,
+                                    "translation": [
+                                        {
+                                            "languageCode": "en",
+                                            "name": "medium 9"
+                                        }
+                                    ],
+                                }
+                            ]
+                        },
+                        "doughs": NULL,
+                        "toppings": NULL
+                    },
+                    "productFeatures": [
+                        {
+                            "alias": "best-seller",
+                            "icon": "https://domain.com/icons/status/best-seller.png",
+                            "translations": [
+                                {
+                                    "languageCode": "en",
+                                    "name": "Best Seller"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "menuId": 1,
+                    "brandId": 1,
+                    "menuCategoryIds": [5],
+                    "name": "Pasta bolognese",
+                    "price": 129000,
+                    "oldPrice": 139000,
+                    "status": "Active",
+                    "translations": [
+                        "menuItemId": 4,
+                        "languageCode": "en",
+                        "name": "Pasta bolognese",
+                        "description": "Italian-style mince beef sauce finely mixed with pasta"
+                    ],
+                    "isCombo": false,
+                    "productPopupDetails": {
+                        "translations": [
+                            {
+                                "languageCode": "en",
+                                "translator": {
+                                    "size": "Size",
+                                    "dough": "Dough",
+                                    "topping": "Topping"
+                                }
+                            }
+                        ],
+                        "modifierGroups": NULL,
+                        "sizes": NULL,
+                        "doughs": NULL,
+                        "toppings": NULL
+                    },
+                    "productFeatures": [
+                        {
+                            "alias": "best-seller",
+                            "icon": "https://domain.com/icons/status/best-seller.png",
+                            "translations": [
+                                {
+                                    "languageCode": "en",
                                     "name": "Best Seller"
                                 }
                             ]
@@ -528,19 +663,39 @@ Resources related to menu in the API.
                 }
             ],
             "modifiers": [
-                "id": 1,
-                "code": "1",
-                "modifierGroupId": 1,
-                "menuItemId": 111,
-                "price": 129000,
-                "status": "Active",
-                "translation": [
-                    {
-                        "modifierId": 1,
-                        "language_code": "en",
-                        "name": "Pizza Chat_Ham & Bacon",
-                        "description": "Description"
-                    }
-                ]
+                {
+                    "id": 1,
+                    "code": "1",
+                    "modifierGroupId": 1,
+                    "menuItemId": 111,
+                    "price": 129000,
+                    "status": "Active",
+                    "isDish": true,
+                    "translation": [
+                        {
+                            "modifierId": 1,
+                            "languageCode": "en",
+                            "name": "Pizza Chat_Ham & Bacon",
+                            "description": "Description"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "code": "1",
+                    "modifierGroupId": 16,
+                    "menuItemId": 111,
+                    "price": 129000,
+                    "status": "Active",
+                    "isDish": false,
+                    "translation": [
+                        {
+                            "modifierId": 1,
+                            "languageCode": "en",
+                            "name": "Note",
+                            "description": "Description"
+                        }
+                    ]
+                }
             ]
         }
