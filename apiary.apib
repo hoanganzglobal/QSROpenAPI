@@ -1,0 +1,546 @@
+FORMAT: 1A
+HOST: https://openapi.qsrvietnam.com/
+
+# qsropenapi
+
+QSR Open API is a Open API allowing partners to view and post in them.
+
+## Authorization Token
+
+### Authorization Token [/v1/auth/realms/openid-connect/token]
+
+#### Get Authorization/Refresh Token [POST]
+
++ Request (application/json)
+
+        {
+            "grant_type": "client_credentials",
+            "client_id": "client_id",
+            "client_secret": "client_secret"
+        }
+
++ Request (application/json)
+
+        {
+            "grant_type": "refresh_token",
+            "refresh_token": "refresh_token"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJvd1F6b2ZzSnV1SXJXMHNWYU5tSWMzdVY4RGJQc1g3QUtTSjBOLU1SR0pNIn0.eyJqdGkiOiI5MDdkODkzYi0xNDVhLTQ3ODEtOWZjMi1kYWJjZjViN2FkMDEiLCJleHAiOjE2MDM1Mjc2MDYsIm5iZiI6MCwiaWF0IjoxNjAzNTI1ODA2LCJpc3MiOiJodHRwczovL3V1a3VhdC50YXB0YXAuY29tLnZuL2F1dGgvcmVhbG1zL2xveWFsdHkiLCJhdWQiOlsibG95YWx0eS1jbGllbnQiLCJhY2NvdW50Il0sInN1YiI6IjM5NjI3NmI2LTk2Y2YtNDJiNy05OTI2LTNmMWZlYTcxZmJkMiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhbGF4eS1jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiI4MmI3NzAyNi1iN2NlLTQ4N2UtYTI1NC03YzMxYmVjZTc3NmQiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJsb3lhbHR5LWNsaWVudCI6eyJyb2xlcyI6WyJsb3lhbHR5X2FkbWluIiwidW1hX3Byb3RlY3Rpb24iXX0sImdhbGF4eS1jbGllbnQiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iLCJnYWxheHlfYWRtaW4iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SG9zdCI6IjE0LjI0MS4yNDMuMTQ0IiwiY2xpZW50SWQiOiJnYWxheHktY2xpZW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWdhbGF4eS1jbGllbnQiLCJjbGllbnRBZGRyZXNzIjoiMTQuMjQxLjI0My4xNDQifQ.iHRlLRdsGXWRgy_cAHMz483p0qxnzZ014JGKu6wHFNE8BPz1BjGX2QjdwVi0xCSJtXgrxb5WbrfuVW9KX0TxCQNZMVydPp4nwN7PneExMhStpwHTpgSMayitr3-Lq0ivIt8ysp4e5MvbWqkGce2cAaqGL8SPPpzOiCAnLfTyMqYOnFIyItXUk7N4t8TEe51eBhbb1chIbU5E-G52fTYz77m9eaLmRxBVo1JIIe8h1fwb8vvut7VigdzmsDVq5DB3B0Px2DRgnScW2HdADuNjN5iUa7cM5S2XQtkNVS6LaM36LrjGmLDo1PDcR2NKWISciQHsKTJ7Rs_VmdSLCSHy-w",
+                "expires_in": 1800,
+                "refresh_expires_in": 1800,
+                "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1YzMxNjQ4Mi04MDU1LTQ3NmEtYmViZS0wMTY4MzkxMDlkYTIifQ.eyJqdGkiOiI1NTQ0MGRjNC01NmRkLTQxZTUtYjJiMC0yZTJlYmQ2M2E4OWMiLCJleHAiOjE2MDM1Mjc2MDYsIm5iZiI6MCwiaWF0IjoxNjAzNTI1ODA2LCJpc3MiOiJodHRwczovL3V1a3VhdC50YXB0YXAuY29tLnZuL2F1dGgvcmVhbG1zL2xveWFsdHkiLCJhdWQiOiJodHRwczovL3V1a3VhdC50YXB0YXAuY29tLnZuL2F1dGgvcmVhbG1zL2xveWFsdHkiLCJzdWIiOiIzOTYyNzZiNi05NmNmLTQyYjctOTkyNi0zZjFmZWE3MWZiZDIiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiZ2FsYXh5LWNsaWVudCIsImF1dGhfdGltZSI6MCwic2Vzc2lvbl9zdGF0ZSI6IjgyYjc3MDI2LWI3Y2UtNDg3ZS1hMjU0LTdjMzFiZWNlNzc2ZCIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibG95YWx0eS1jbGllbnQiOnsicm9sZXMiOlsibG95YWx0eV9hZG1pbiIsInVtYV9wcm90ZWN0aW9uIl19LCJnYWxheHktY2xpZW50Ijp7InJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIiwiZ2FsYXh5X2FkbWluIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUifQ.3YqCUcFymbmGe_movwT2sVLvxeqTN-e4fJeUgIOZdwE",
+                "token_type": "bearer",
+                "not-before-policy": 0,
+                "session_state": "e7a30f53-4f9e-40d9-aa9f-a8da3b6c75ae",
+                "scope": {
+                    "scope_id": 1,
+                    "scope_business": {
+                        "brands": [
+                            {
+                                "id": 1,
+                                "code": "tpc",
+                                "name": "The Pizza Company",
+                                "isIncludedTax": true,
+                                "tax_value": 0
+                            }
+                        ],
+                        "menus": [
+                            "id": 1,
+                            "name": "QSR Menu For All Brand"
+                        ],
+                        "payment_methods": [
+                            {
+                                "id": 1,
+                                "code": "FORK-POD",
+                                "name": "Pay On Delivery"
+                            }
+                        ],
+                        "order_methods": [
+                            {
+                                "id": 1,
+                                "code": "1",
+                                "name": "Pickup"
+                            }
+                        ]
+                    }
+                }
+            }
+    
+
+## Group Restaurants
+
+Resources related to restaurants in the API.
+
+### Restaurants Collection [/v1/restaurants?brand_id={brand_id}&status={status}&page={page}&size={size}]
+
+#### List All Restaurants [GET]
+
++ Parameters
+    + brand_id: `1` (number, required)
+    + status: `Active` (string, optional)
+    + page: `0` (number, optional)
+    + size: `10` (number, optional)
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "1",
+                "code": "1",
+                "name": "The Pizza Company Nguyen Thai Hoc",
+                "status": "Active",
+                "brand_id": 1,
+                "phone": "+84838206626",
+                "full_address": "",
+                "location": {
+                    "lat": "",
+                    "lng": "",
+                    "country": "Vietnam",
+                    "city": "Ho Chi Minh City",
+                    "district": "District 1",
+                    "ward": "Ward Cau Ong Lanh",
+                    "street": "Nguyen Thai Hoc Street",
+                    "houseno": "107"
+                },
+                "translations": [
+                    {
+                        "language_code": "en",
+                        "name": "The Pizza Company Nguyen Thai Hoc",
+                        "short_desc": "Short Description",
+                        "meta_title": "Meta Title",
+                        "meta_keyword": "Meta Keywords",
+                        "meta_description": "Meta Keywords"
+                    }
+                ],
+                "is_scheduled_order": true,
+                "is_delivery": true,
+                "is_pickup": true,
+                "min_delivery_time": "30",
+                "max_delivery_time": "40",
+                "opening_time": "10:00",
+                "closing_time": "22:00",
+                "published_at": "2021-12-05T08:40:51.620Z",
+                "created_at": "2021-12-05T08:40:51.620Z",
+                "updated_at": "2021-12-05T08:40:51.620Z"
+            }
+        ]
+
+
+### Restaurant Details [/v1/restaurants/details?brand_id={brand_id}&id={id}]
+
+#### Inquiry Restaurant Details [GET]
+
++ Parameters
+    + brand_id: `1` (number, required)
+    + id: `1` (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "id": "1",
+            "code": "1",
+            "name": "The Pizza Company Nguyen Thai Hoc",
+            "status": "Active",
+            "brand_id": 1,
+            "phone": "+84838206626",
+            "full_address": "",
+            "location": {
+                "lat": "",
+                "lng": "",
+                "country": "Vietnam",
+                "city": "Ho Chi Minh City",
+                "district": "District 1",
+                "ward": "Ward Cau Ong Lanh",
+                "street": "Nguyen Thai Hoc Street",
+                "houseno": "107"
+            },
+            "translations": [
+                {
+                    "language_code": "en",
+                    "name": "The Pizza Company Nguyen Thai Hoc",
+                    "short_desc": "Short Description",
+                    "meta_title": "Meta Title",
+                    "meta_keyword": "Meta Keywords",
+                    "meta_description": "Meta Keywords"
+                }
+            ],
+            "is_scheduled_order": true,
+            "is_delivery": true,
+            "is_pickup": true,
+            "min_delivery_time": "30",
+            "max_delivery_time": "40",
+            "opening_time": "10:00",
+            "closing_time": "22:00",
+            "published_at": "2021-12-05T08:40:51.620Z",
+            "created_at": "2021-12-05T08:40:51.620Z",
+            "updated_at": "2021-12-05T08:40:51.620Z"
+        }
+
+
+### Restaurant Table Details [/v1/restaurants/details/tables?brand_id={brand_id}&id={id}]
+
+#### Inquiry Restaurant Table Details [GET]
+
++ Parameters
+    + brand_id: `1` (number, required)
+    + id: `1` (number, required)
+
++ Response 200 (application/json)
+        
+        {
+            "totalRecord": 10,
+            "content": [
+                {
+                    "id": "1",
+                    "code": "1",
+                    "brand_code": "tpc",
+                    "restaurant_id": "1",
+                    "name": "A1",
+                    "floor": "1",
+                    "status": "Active"
+                }
+            ]
+        }
+
+
+## Group Menu
+
+Resources related to menu in the API.
+
+### Brand Menu Details [/menu/details?brand_id={brand_id}&menu_id={menu_id}]
+
+#### Inquiry Brand Menu Details [GET]
+
++ Parameters
+    + brand_id: `1` (number, required)
+    + menu_id: `1` (number, required)
+
++ Response 200 (application/json)
+        
+        {
+            "menucategory": [
+                {
+                    "id": 1,
+                    "parent_id": NULL,
+                    "menu_id": 1,
+                    "brand_id": 1,
+                    "code": "1",
+                    "name": "Promotions",
+                    "sort": 0,
+                    "status": "Active",
+                    "translations": [
+                        "menucategory_id": 1,
+                        "language_code": "en",
+                        "name": "Promotions",
+                        "description": "Description"
+                    ]
+                },
+                {
+                    "id": 2,
+                    "parent_id": NULL,
+                    "menu_id": 1,
+                    "brand_id": 1,
+                    "code": "2",
+                    "name": "Pizza",
+                    "sort": 0,
+                    "status": "Active",
+                    "translations": [
+                        "menucategory_id": 2,
+                        "language_code": "en",
+                        "name": "Pizza",
+                        "description": "Description"
+                    ]
+                },
+                {
+                    "id": 3,
+                    "parent_id": 2,
+                    "menu_id": 1,
+                    "brand_id": 1,
+                    "code": "3",
+                    "name": "Pizza Pesto",
+                    "sort": 0,
+                    "status": "Active",
+                    "translations": [
+                        "menucategory_id": 3,
+                        "language_code": "en",
+                        "name": "Pizza Pesto",
+                        "description": "Description"
+                    ]
+                }
+            ],
+            "menuitems": [
+                {
+                    "id": 1,
+                    "menu_id": 1,
+                    "brand_id": 1,
+                    "menucategory_ids": [3],
+                    "name": "Seafood Pesto",
+                    "price": 169000,
+                    "old_price": 179000,
+                    "status": "Active",
+                    "translations": [
+                        "menuitem_id": 1,
+                        "language_code": "en",
+                        "name": "Seafood Pesto",
+                        "description": "Description"
+                    ],
+                    "is_combo": false,
+                    "is_size": true,
+                    "is_dough": true,
+                    "product_popup": {
+                        "translations": [
+                            {
+                                "language_code": "en",
+                                "translator": {
+                                    "size": "Size",
+                                    "dough": "Dough",
+                                    "topping": "Topping"
+                                }
+                            }
+                        ],
+                        "modiGroups": [],
+                        "sizes": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "status": "Active",
+                                    "isDefault": true,
+                                    "price": 0,
+                                    "sort": 0,
+                                    "translation": [
+                                        {
+                                            "language_code": "en",
+                                            "name": "small 6"
+                                        }
+                                    ],
+                                }
+                            ]
+                        }
+                        "doughs": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "sizeId": 1,
+                                    "status": "Active",
+                                    "isDefault": true,
+                                    "price": 0,
+                                    "sort": 0,
+                                    "translations": [
+                                        {
+                                            "language_code": "en",
+                                            "name": "Pan"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "toppings": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "status": "Active",
+                                    "price": 29000,
+                                    "sort": 0,
+                                    "photo": "https://domain.com/photos/toppings/tomato.png",
+                                    "translations": [
+                                        {
+                                            "language_code": "en",
+                                            "name": "Tomato"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "product_features": [
+                        {
+                            "alias": "best-seller",
+                            "icon": "https://domain.com/icons/status/best-seller.png",
+                            "translations": [
+                                {
+                                    "language_code": "en",
+                                    "name": "Best Seller"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "menu_id": 1,
+                    "brand_id": 1,
+                    "menucategory_ids": [1],
+                    "name": "Combo Cool Price",
+                    "price": 169000,
+                    "old_price": 179000,
+                    "status": "Active",
+                    "translations": [
+                        "menuItemId": 2,
+                        "language_code": "en",
+                        "name": "Combo Cool Price",
+                        "description": "Description"
+                    ],
+                    "is_combo": true,
+                    "is_size": true,
+                    "is_dough": true,
+                    "product_popup": {
+                        "translations": [
+                            {
+                                "language_code": "en",
+                                "translator": {
+                                    "size": "Size",
+                                    "dough": "Dough",
+                                    "topping": "Topping"
+                                }
+                            }
+                        ],
+                        "modifierGroups": [
+                            {
+                                "id": 1,
+                                "code": "1",
+                                "menuItemId": 2,
+                                "status": "Active",
+                                "upLimit": 1,
+                                "downLimit": 1,
+                                "defaultModifierId": 1,
+                                "sort": 0,
+                                "translations": [
+                                    {
+                                        "modifierGroupId": 1,
+                                        "language_code": "en",
+                                        "name": "Pizza",
+                                        "description": "Description"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "code": "2",
+                                "status": "Active",
+                                "upLimit": 1,
+                                "downLimit": 1,
+                                "defaultModifierId": 2,
+                                "sort": 1,
+                                "translations": [
+                                    {
+                                        "modifierGroupId": 2,
+                                        "language_code": "en",
+                                        "name": "Appetizers",
+                                        "description": "Description"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 3,
+                                "code": "3",
+                                "status": "Active",
+                                "upLimit": 2,
+                                "downLimit": 2,
+                                "defaultModifierId": 3,
+                                "sort": 2,
+                                "translations": [
+                                    {
+                                        "modifierGroupId": 3,
+                                        "language_code": "en",
+                                        "name": "Drinks",
+                                        "description": "Description"
+                                    }
+                                ]
+                            }
+                        ],
+                        "sizes": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "status": "Active",
+                                    "isDefault": true,
+                                    "price": 0,
+                                    "sort": 0,
+                                    "translation": [
+                                        {
+                                            "language_code": "en",
+                                            "name": "small 6"
+                                        }
+                                    ],
+                                }
+                            ]
+                        }
+                        "doughs": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "sizeId": 1,
+                                    "status": "Active",
+                                    "isDefault": true,
+                                    "price": 0,
+                                    "sort": 0,
+                                    "translations": [
+                                        {
+                                            "language_code": "en",
+                                            "name": "Pan"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "toppings": {
+                            "options": [
+                                {
+                                    "id": 1,
+                                    "menuItemId": 1,
+                                    "status": "Active",
+                                    "price": 29000,
+                                    "sort": 0,
+                                    "photo": "https://domain.com/photos/toppings/tomato.png",
+                                    "translations": [
+                                        {
+                                            "language_code": "en",
+                                            "name": "Tomato"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "product_features": [
+                        {
+                            "alias": "best-seller",
+                            "icon": "https://domain.com/icons/status/best-seller.png",
+                            "translations": [
+                                {
+                                    "language_code": "en",
+                                    "name": "Best Seller"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "modifiers": [
+                "id": 1,
+                "code": "1",
+                "modifierGroupId": 1,
+                "menuItemId": 111,
+                "price": 129000,
+                "status": "Active",
+                "translation": [
+                    {
+                        "modifierId": 1,
+                        "language_code": "en",
+                        "name": "Pizza Chat_Ham & Bacon",
+                        "description": "Description"
+                    }
+                ]
+            ]
+        }
