@@ -38,40 +38,110 @@ QSR Open API is a Open API allowing partners to view and post in them.
                 "token_type": "bearer",
                 "not-before-policy": 0,
                 "session_state": "e7a30f53-4f9e-40d9-aa9f-a8da3b6c75ae",
-                "scope": {
-                    "scope_id": 1,
-                    "scope_business": {
-                        "brands": [
-                            {
-                                "id": 1,
-                                "code": "tpc",
-                                "name": "The Pizza Company",
-                                "isIncludedTax": true,
-                                "tax_value": 0
-                            }
-                        ],
-                        "menus": [
+                "scopeId": 1
+            }
+
+
+## Group Scope Business
+
+Resources related to scope business in the API.
+
+### Scope Business Details [/v1/scope/details?scopeId={scopeId}]
+
+#### Get Scope Business Details [GET]
+
++ Parameters
+    + scopeId: `1` (number, required)
+    
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "scopeId": 1,
+                "scopeName": "QSR and FORK",
+                "scopeBusiness": {
+                    "brands": [
+                        {
                             "id": 1,
-                            "name": "QSR Menu For All Brand"
-                        ],
-                        "payment_methods": [
-                            {
-                                "id": 1,
-                                "code": "FORK-POD",
-                                "name": "Pay On Delivery"
-                            }
-                        ],
-                        "order_methods": [
-                            {
-                                "id": 1,
-                                "code": "1",
-                                "name": "Pickup"
-                            }
-                        ]
-                    }
+                            "code": "tpc",
+                            "isIncludedTax": true,
+                            "taxValue": 0,
+                            "altName": "TPC",
+                            "translations": [
+                                {
+                                    "brandId": 1,
+                                    "languageCode": "en",
+                                    "shortName": "The Pizza Company",
+                                    "longName": "The Pizza Company",
+                                    "description": "Description"
+                                }
+                            ]
+                        }
+                    ],
+                    "menus": [
+                        "id": 1,
+                        "name": "QSR Menu For All Brand"
+                    ],
+                    "paymenTypes": [
+                        {
+                            "id": 1,
+                            "code": "FORK-POD",
+                            "translations": [
+                                {
+                                    "paymentTypeId": 1,
+                                    "languageCode": "en",
+                                    "name": "Pay On Delivery",
+                                    "description": "Description"
+                                }
+                            ]
+                        }
+                    ],
+                    "orderTypes": [
+                        {
+                            "id": 1,
+                            "code": "1",
+                            "translations": [
+                                {
+                                    "orderTypeId": 1,
+                                    "languageCode": "en",
+                                    "name": "Delivery",
+                                    "description": "Description"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "code": "2",
+                            "translations": [
+                                {
+                                    "orderTypeId": 2,
+                                    "languageCode": "en",
+                                    "name": "Takeaway",
+                                    "description": "Description"
+                                }
+                            ]
+                        }
+                    ],
+                    "orderChannel": [
+                        {
+                            "id": 1,
+                            "code": "1",
+                            "name": "Fork - Out of Store"
+                        },
+                        {
+                            "id": 2,
+                            "code": "2",
+                            "name": "Fork - At Store"
+                        }
+                    ],
+                    "defaultResTableId": 8888,
+                    "defaultWaiterId": 10014,
+                    "defaultGuestTypeId": 1,
+                    "defaultGuestCount": 1
                 }
             }
-    
+
 
 ## Group Restaurants
 
@@ -97,7 +167,7 @@ Resources related to restaurants in the API.
                 "status": "Active",
                 "brandId": 1,
                 "phone": "+84838206626",
-                "full_address": "",
+                "fullAddress": "",
                 "location": {
                     "lat": "",
                     "lng": "",
@@ -698,4 +768,113 @@ Resources related to menu in the API.
                     ]
                 }
             ]
+        }
+        
+        
+## Group Orders
+
+### Post Create Order [/v1/orders/create]
+
+#### Post Create Order [POST]
+
++ Request (application/json)
+
+        {
+            "brandId": 1,
+            "restaurantId": 1,
+            "orderChannel": 1,
+            "orderTypeId": 1,
+            "tableId": 8888,
+            "waiterId": 1,
+            "guestTypeId": 1,
+            "guestCount": 1
+            "orderNote": "",
+            "scheduleTime": "2021-12-07T17:15:00",
+            "deliveryAddress": "full address",
+            "customerInfo": {
+                "name": "Hoang Than",
+                "phone": "+84903869596"
+            },
+            "contactInfo": {
+                "name": "Lang Loi",
+                "phone": "+84933499664"
+            },
+            "items": [
+                {
+                    "itemType": "combo",
+                    "id": 2,
+                    "quantity": 2,
+                    "components": [
+                        {
+                            "menuItemId": 6,
+                            "modifierId": 11,
+                            "note": "less spicy"
+                        }
+                    ]
+                },
+                {
+                    "itemType": "dish",
+                    "id": 1,
+                    "quantity": 1,
+                    "note": "less spicy"
+                }
+            ],
+            "orderSum": 499000,
+            "discounts": [
+                { "discountId": 1 }
+            ],
+            "discountSum": 100000,
+            "shippingFee": 0,
+            "taxCost": 0,
+            "prepay": {
+                "paymentTypeId": 1,
+                "amount": 399000
+            }
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+    
+            Location: /v1/orders/1
+            
+    + Body
+    
+            {
+                "orderId": 1,
+                "guidId": "{3E142020-DB60-4359-99A5-FCA3C6C70FD7}",
+                "status": "Processing",
+                "createdAt_Middleware": "2021-12-06T15:15:00"
+            }
+
+
+### View Order Details [/v1/orders/{id}]
+
+#### View Order Details [GET]
+
++ Parameters
+    + id: `1` (number, required)
+
++ Response 200 (application/json)
+
+        {
+            "orderId": 1,
+            "guidId": "{3E142020-DB60-4359-99A5-FCA3C6C70FD7}",
+            "orderChannelId": 1,
+            "orderTypeId": 1,
+            "paymentTypeId": 1,
+            "tableId": 8888,
+            "items": [
+            
+            ],
+            "orderSum": 499000,
+            "discountSum": 100000,
+            "shippingFee": 0,
+            "paidSum": 399000,
+            "status": "Cooking",
+            "createdAt_Middleware": "2021-12-06T15:15:00",
+            "createdAt_POS": "2021-12-07T10:00:00",
+            "printTimeAt_POS": "2021-12-07T16:45:00",
+            "deliveredAt": NULL,
+            "finalBillTimeAt_POS": NULL
         }
