@@ -781,65 +781,71 @@ Resources related to menu in the API.
 
 + Request (application/json)
 
-        {
-            "brandId": 1,
-            "restaurantId": 1,
-            "orderChannel": 1,
-            "orderTypeId": 1,
-            "tableId": 8888,
-            "waiterId": 1,
-            "guestTypeId": 1,
-            "guestCount": 1
-            "orderNote": "",
-            "isScheduledOrder": true,
-            "deliveryTime": "2021-12-07T17:15:00",
-            "deliveryAddress": "full address",
-            "customerInfo": {
-                "name": "Hoang Than",
-                "phone": "+84903869596"
-            },
-            "contactInfo": {
-                "name": "Lang Loi",
-                "phone": "+84933499664"
-            },
-            "items": [
-                {
-                    "itemType": "combo",
-                    "menuItemId": 2,
-                    "quantity": 2,
-                    "components": [
-                        {
-                            "menuItemId": 6,
-                            "modifierId": 11,
-                            "note": "less spicy"
-                        }
-                    ]
+    + Headers
+            
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDczZmQyYWIxYTJkNjU3ZmNkZDdmZDEiLCJyb2xlIjoiYmFzaWMiLCJpYXQiOjE2MTg0MTA2NDcsImV4cCI6MTY0OTk0NjY0N30.YgTSSci9mfm6al_wD7dAEFW8SD_ZVYIsm0hix6-Z9rw
+
+    + Body
+
+            {
+                "brandId": 1,
+                "restaurantId": 1,
+                "orderChannel": 1,
+                "orderTypeId": 1,
+                "tableId": 8888,
+                "waiterId": 1,
+                "guestTypeId": 1,
+                "guestCount": 1
+                "orderNote": "",
+                "isScheduledOrder": true,
+                "deliveryTime": "2021-12-07T17:15:00",
+                "deliveryAddress": "full address",
+                "customerInfo": {
+                    "name": "Hoang Than",
+                    "phone": "+84903869596"
                 },
-                {
-                    "itemType": "dish",
-                    "menuItemId": 1,
-                    "quantity": 1,
-                    "note": "less spicy"
+                "contactInfo": {
+                    "name": "Lang Loi",
+                    "phone": "+84933499664"
                 },
-                {
-                    "itemType": "digital",
-                    "menuItemId": 991,
-                    "quantity": 1,
-                    "note": ""
+                "items": [
+                    {
+                        "itemType": "combo",
+                        "menuItemId": 2,
+                        "quantity": 2,
+                        "components": [
+                            {
+                                "menuItemId": 6,
+                                "modifierId": 11,
+                                "note": "less spicy"
+                            }
+                        ]
+                    },
+                    {
+                        "itemType": "dish",
+                        "menuItemId": 1,
+                        "quantity": 1,
+                        "note": "less spicy"
+                    },
+                    {
+                        "itemType": "digital",
+                        "menuItemId": 991,
+                        "quantity": 1,
+                        "note": ""
+                    }
+                ],
+                "orderSum": 499000,
+                "discounts": [
+                    { "discountId": 1 }
+                ],
+                "discountSum": 100000,
+                "shippingFee": 0,
+                "taxCost": 0,
+                "prepay": {
+                    "paymentTypeId": 1,
+                    "amount": 399000
                 }
-            ],
-            "orderSum": 499000,
-            "discounts": [
-                { "discountId": 1 }
-            ],
-            "discountSum": 100000,
-            "shippingFee": 0,
-            "taxCost": 0,
-            "prepay": {
-                "paymentTypeId": 1,
-                "amount": 399000
             }
-        }
 
 + Response 200 (application/json)
 
@@ -860,6 +866,12 @@ Resources related to menu in the API.
 ### View Order Details [/v1/orders/{id}]
 
 #### View Order Details [GET]
+
++ Request (application/json)
+
+    + Headers
+            
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDczZmQyYWIxYTJkNjU3ZmNkZDdmZDEiLCJyb2xlIjoiYmFzaWMiLCJpYXQiOjE2MTg0MTA2NDcsImV4cCI6MTY0OTk0NjY0N30.YgTSSci9mfm6al_wD7dAEFW8SD_ZVYIsm0hix6-Z9rw
 
 + Parameters
     + id: `1` (number, required)
