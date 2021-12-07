@@ -141,6 +141,28 @@ Resources related to scope business in the API.
                             "name": "Fork - At Store"
                         }
                     ],
+                    "discounts": [
+                        {
+                            "id": 1,
+                            "code": "1",
+                            "translations": [
+                                {
+                                    "discountId": 1,
+                                    "languageCode": "en",
+                                    "title": "Title",
+                                    "description": "Description"
+                                }
+                            ],
+                            "conditions": {
+                                "minBill": 100000
+                            },
+                            "discountType": "percent",
+                            "discountValue": {
+                                "amount": 30,
+                                "maxAmount": 80000
+                            }
+                        }
+                    ],
                     "defaultResTableId": 8888,
                     "defaultWaiterId": 10014,
                     "defaultGuestTypeId": 1,
