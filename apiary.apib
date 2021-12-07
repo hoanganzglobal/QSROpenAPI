@@ -294,7 +294,7 @@ Resources related to menu in the API.
 + Response 200 (application/json)
         
         {
-            "menucategory": [
+            "menuCategories": [
                 {
                     "id": 1,
                     "parentId": NULL,
@@ -376,7 +376,7 @@ Resources related to menu in the API.
                     ]
                 }
             ],
-            "menuitems": [
+            "menuItems": [
                 {
                     "id": 1,
                     "menuId": 1,
@@ -803,7 +803,7 @@ Resources related to menu in the API.
             "items": [
                 {
                     "itemType": "combo",
-                    "id": 2,
+                    "menuItemId": 2,
                     "quantity": 2,
                     "components": [
                         {
@@ -815,9 +815,15 @@ Resources related to menu in the API.
                 },
                 {
                     "itemType": "dish",
-                    "id": 1,
+                    "menuItemId": 1,
                     "quantity": 1,
                     "note": "less spicy"
+                },
+                {
+                    "itemType": "digital",
+                    "menuItemId": 991,
+                    "quantity": 1,
+                    "note": ""
                 }
             ],
             "orderSum": 499000,
